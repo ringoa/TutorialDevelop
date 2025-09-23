@@ -12,6 +12,7 @@
 	<form name="frm" method="post" th:action="@{/user/list}">
 		<a th:href="@{/user/register}">Userの登録</a>
 		<input type="submit" name="deleteRun" id="deleteRun" value="(選択)したuserを一括削除">
+		<br><br>
 		<table>
 			<tr>
 				<th>ID</th>
@@ -19,6 +20,7 @@
 	            <th>性別</th>
 	            <th>年齢</th>
 	            <th>メールアドレス</th>
+	            <th></th>
 			</tr>
 			<tr th:each="user : ${userlist}">
 				<td class="center"><input type="checkbox" name="idck" th:value="${user.id}"></td>
@@ -27,7 +29,6 @@
 	            <td th:text="${user.gender}"></td>
 	            <td th:text="${user.age}"></td>
 	            <td th:text="${user.email}"></td>
-
 	            <td>
 	            	<a th:href="@{/user/update/{id}/(id=${user.id})}">更新</a>
 	            </td>
